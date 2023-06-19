@@ -1,12 +1,4 @@
-### <div align="start">I'm Antriksh, a full-time student free-time developer 👨‍💻 🚀</div>  
-  
-
-- 🌱 I’m currently learning JAVA.  
-  
-- ❓ Ask me about anything related to the MEFN stack and related technologies  
-  
-- ⚡ Fun fact: I am 16.  
-  
+### <div align="start">I'm Priyanshu, a full-time student free-time developer 👨‍💻 🚀</div>  
 
 <br/>  
 
@@ -15,7 +7,7 @@
 <a href="https://instagram.com/antriksh.ig" target="_blank">
 <img src=https://img.shields.io/badge/instagram-%23000000.svg?&style=for-the-badge&logo=instagram&logoColor=white alt=instagram style="margin-bottom: 5px;" />
 </a>
-<a href="https://github.com/antrikshverma" target="_blank">
+<a href="https://github.com/codebyps" target="_blank">
 <img src=https://img.shields.io/badge/github-%2324292e.svg?&style=for-the-badge&logo=github&logoColor=white alt=github style="margin-bottom: 5px;" />
 </a>
 <a href="https://twitter.com/antrikshdev" target="_blank">
@@ -26,7 +18,7 @@
 
 
 ## Github Stats  
-<div align="start"><img src="https://github-readme-stats.vercel.app/api?username=antrikshverma&show_icons=true&theme=dark&count_private=true&hide_border=true" align="center" /></div>  
+<div align="start"><img src="https://github-readme-stats.vercel.app/api?username=codebyps&show_icons=true&theme=dark&count_private=true&hide_border=true" align="center" /></div>  
 
 <br/>
 
@@ -47,6 +39,6 @@
 </div><br/>
 
 <div align="start">
-<img src="https://komarev.com/ghpvc/?username=antrikshverma&&style=flat-rounded" align="center" />
+<img src="https://komarev.com/ghpvc/?username=codebyps&&style=flat-rounded" align="center" />
 </div>  
 <br/>  
