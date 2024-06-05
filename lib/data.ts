@@ -60,6 +60,14 @@ export const experiencesData = [
 ] as const;
 
 export const projectsData = [
+    {
+    title: "Saavn Desktop",
+    description:
+      "The Saavn Music Player for Windows, an open-source desktop application that allows you to enjoy your favorite music seamlessly. This music player is powered by the Saavn API and built with Flutter, providing a robust and modern user experience.",
+    tags: ["Flutter", "Riverpod", "Windows", "Music", "Saavn API",],
+    imageUrl: "/p/no-image.png",
+    link: "https://github.com/priyanshuverma-dev/saavn",
+  },
   {
     title: "Circle Wallet Parody",
     description:
