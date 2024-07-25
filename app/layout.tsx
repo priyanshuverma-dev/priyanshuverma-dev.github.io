@@ -1,6 +1,5 @@
 import Header from "@/components/header";
 import "./globals.css";
-import { Analytics } from "@vercel/analytics/react";
 import { Inter } from "next/font/google";
 import ActiveSectionContextProvider from "@/context/active-section-context";
 import Footer from "@/components/footer";
@@ -42,13 +41,13 @@ export const metadata: Metadata = {
     countryName: "India",
     emails: ["priyanshuverma@outlook.in"],
     determiner: "auto",
-    images: ["https://priyanshuverma-dev.github.io/image-portfolio.png"],
+    images: ["https://priyanshuverma-dev.github.io/og.png"],
   },
   publisher: "Priyanshu",
   twitter: {
     description:
       "Hi, I am Priyanshu Verma The Developer. This is my projects portfolio website where you can see my progress and achievements..",
-    images: ["https://priyanshuverma-dev.github.io/image-portfolio.png"],
+    images: ["https://priyanshuverma-dev.github.io/og.png"],
     site: "https://priyanshuverma-dev.github.io",
     title: "Priyanshu | Personal Portfolio",
     card: "summary_large_image",
@@ -78,7 +77,6 @@ export default function RootLayout({
             <ThemeSwitch />
           </ActiveSectionContextProvider>
         </ThemeContextProvider>
-        <Analytics />
       </body>
     </html>
   );
