@@ -11,7 +11,7 @@ export default function Footer() {
         Next.js.
       </p>
       <p className="text-xs">
-        <span className="font-semibold">Last Updated:</span> 25 July 2024
+        <span className="font-semibold">25 July 2024</span>
       </p>
     </footer>
   );
