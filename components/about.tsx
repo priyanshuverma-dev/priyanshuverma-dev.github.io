@@ -19,29 +19,32 @@ export default function About() {
     >
       <SectionHeading>About me</SectionHeading>
       <p className="mb-3">
-        Current I am in <span className="font-medium">School</span>, I decided
-        to pursue my passion for programming. I enrolled in a coding bootcamp
-        and learned{" "}
-        <span className="font-medium">full-stack web development</span>.{" "}
-        <span className="italic">My favorite part of programming</span> is the
-        problem-solving aspect and creating funny projects. I{" "}
-        <span className="underline">love</span> the feeling of finally figuring
-        out a solution to a problem. My core stack is{" "}
+        I am currently a{" "}
+        <span className="font-medium">high school student</span> with a passion
+        for programming. My journey began with enrolling in a coding bootcamp,
+        where I honed my skills in{" "}
         <span className="font-medium">
-          React, Next.js, Node.js, and MongoDB
+          full-stack web development and mobile apps with flutter
         </span>
-        . For Mobile Apps <span className="font-medium">Flutter</span>. I am
-        also familiar with TypeScript and Prisma. I am always looking to learn
-        new technologies. I am currently trying to building a{" "}
-        <span className="font-medium">SaaS Product</span>with latest Techs.
+        .<span className="italic"> My favorite part of programming</span> is the
+        problem-solving aspect and creating innovative projects. I
+        <span className="underline"> love</span> the feeling of finally figuring
+        out a solution to a problem. My core stack includes
+        <span className="font-medium"> React, Next.js, Node.js, Flutter</span>.
+        For mobile apps, I use <span className="font-medium">Flutter</span>. I
+        am also proficient in TypeScript and Prisma. I am always eager to learn
+        new technologies and am currently focused on doing
+        <span className="font-medium"> Open-Source</span> contributions and
+        building network with like minded people.
       </p>
 
       <p>
         <span className="italic">When I'm not coding</span>, I enjoy playing
-        video games, watching movies, and exploring world. I also enjoy{" "}
-        <span className="font-medium">learning new things</span>. I am currently
-        learning about <span className="font-medium">Mathematics and AI</span>.
-        I'm also trying to be an extrovert.
+        video games, watching movies, and exploring different cultures. I also
+        enjoy <span className="font-medium">learning new things</span>.
+        Currently, I am learning about{" "}
+        <span className="font-medium">Mathematics and IOT</span>
+        and working on becoming more available.
       </p>
     </motion.section>
   );

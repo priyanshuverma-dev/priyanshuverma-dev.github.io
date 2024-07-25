@@ -10,6 +10,9 @@ export default function Footer() {
         <span className="font-semibold">About this website:</span> built with
         Next.js.
       </p>
+      <p className="text-xs">
+        <span className="font-semibold">Last Updated:</span> 25 July 2024
+      </p>
     </footer>
   );
 }

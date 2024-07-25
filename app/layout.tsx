@@ -13,7 +13,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Priyanshu | Personal Portfolio",
-  description: "Priyanshu is a full-stack developer.",
+  description: "Priyanshu, Aspiring Software Engineer.",
   keywords: [
     "Portfolio website",
     "who is Priyanshu Verma",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     "p7utech",
     "p7u",
   ],
-  metadataBase: new URL("https://p7u.tech"),
+  metadataBase: new URL("https://priyanshuverma-dev.github.io"),
   robots: {
     index: true,
     follow: true,
@@ -35,21 +35,21 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Priyanshu | Personal Portfolio",
     siteName: "Priyanshu | The Portfolio Website",
-    url: "https://p7u.tech",
+    url: "https://priyanshuverma-dev.github.io",
     description:
       "Hi, I am Priyanshu Verma The Developer. This is my projects portfolio website where you can see my progress and achievements..",
     type: "website",
     countryName: "India",
-    emails: ["hello@p7u.tech"],
+    emails: ["priyanshuverma@outlook.in"],
     determiner: "auto",
-    images: ["https://p7u.tech/image-portfolio.png"],
+    images: ["https://priyanshuverma-dev.github.io/image-portfolio.png"],
   },
   publisher: "Priyanshu",
   twitter: {
     description:
       "Hi, I am Priyanshu Verma The Developer. This is my projects portfolio website where you can see my progress and achievements..",
-    images: ["https://p7u.tech/image-portfolio.png"],
-    site: "https://p7u.tech",
+    images: ["https://priyanshuverma-dev.github.io/image-portfolio.png"],
+    site: "https://priyanshuverma-dev.github.io",
     title: "Priyanshu | Personal Portfolio",
     card: "summary_large_image",
   },

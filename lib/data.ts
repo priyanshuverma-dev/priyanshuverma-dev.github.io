@@ -8,27 +8,27 @@ const op =
 export const links = [
   {
     name: "Home",
-    hash: "#home",
+    hash: "/#home",
   },
   {
     name: "About",
-    hash: "#about",
+    hash: "/#about",
   },
   {
     name: "Projects",
-    hash: "#projects",
+    hash: "/#projects",
   },
   {
     name: "Skills",
-    hash: "#skills",
+    hash: "/#skills",
   },
-  // {
-  //   name: "Experience",
-  //   hash: "#experience",
-  // },
+  {
+    name: "/blogs",
+    hash: "/blogs",
+  },
   {
     name: "Contact",
-    hash: "#contact",
+    hash: "/#contact",
   },
 ] as const;
 
@@ -60,11 +60,11 @@ export const experiencesData = [
 ] as const;
 
 export const projectsData = [
-    {
+  {
     title: "Saavn Desktop",
     description:
       "The Saavn Music Player for Windows, an open-source desktop application that allows you to enjoy your favorite music seamlessly. This music player is powered by the Saavn API and built with Flutter, providing a robust and modern user experience.",
-    tags: ["Flutter", "Riverpod", "Windows", "Music", "Saavn API",],
+    tags: ["Flutter", "Riverpod", "Windows", "Music", "Saavn API"],
     imageUrl: "/p/no-image.png",
     link: "https://github.com/priyanshuverma-dev/saavn",
   },
@@ -90,7 +90,7 @@ export const projectsData = [
       "CertiFolio is a platform where users can securely upload, showcase, and verify their certificates and achievements on the InterPlanetary File System (IPFS).",
     tags: ["React", "Next.js", "MongoDB", "Tailwind", "Prisma"],
     imageUrl: "/p/image-certifolio.png",
-    link: "https://certifolio.p7u.tech",
+    link: "https://certifolio-web.vercel.app",
   },
 
   {
@@ -99,7 +99,7 @@ export const projectsData = [
       "SnapLine: Where Creativity Flourishes! Join us to explore and share captivating prompts, spark discussions, and connect with fellow creators. Unleash your imagination and turn prompts into masterpieces. Welcome to the world of SnapLine.",
     tags: ["React", "Next.js", "MongoDB", "Tailwind", "Prisma"],
     imageUrl: "/p/image-snapline.png",
-    link: "https://snapLine.p7u.tech",
+    link: "https://snapLine.vercel.app",
   },
 
   {
@@ -108,7 +108,7 @@ export const projectsData = [
       "Unleash your creativity with Rainbow – the ultimate online tool for unlimited and free multimedia conversion. Transform images, audio, and videos effortlessly, without restrictions. Start converting now and elevate your content like never before!",
     imageUrl: "/p/image-rainbow.png",
     tags: ["React", "Next.js", "WASM", "Tailwind"],
-    link: "https://rainbow-converter.vercel.app/",
+    link: "https://rainbow-converter.vercel.app",
   },
   {
     title: "Bard Chat",
@@ -124,7 +124,7 @@ export const projectsData = [
       "Elevate your online presence with our powerful URL shortening service and gain full control over your links. Our SaaS platform offers a comprehensive API solution, empowering developers to integrate and customize our URL shortening capabilities into their own applications seamlessly.",
     imageUrl: "/p/image-linkey.png",
     tags: ["React", "Next.js", "MongoDB", "Tailwind", "Prisma"],
-    link: "https://linkey-ws.vercel.app/",
+    link: "https://linkey-ws.vercel.app",
   },
 
   {
@@ -133,7 +133,7 @@ export const projectsData = [
       "Web application works similar to Tik Tok. Users can create and share their own videos. Users can also like and comment on other users' videos.",
     tags: ["React", "Sanity", "Tailwind"],
     imageUrl: "/p/image-tik-clone.png",
-    link: "https://clone-tok.vercel.app/",
+    link: "https://clone-tok.vercel.app",
   },
   {
     title: "Gita Mobile",
@@ -149,7 +149,7 @@ export const projectsData = [
       "A public web app for quick analytics on text. It shows word count, character count and social media post limits.",
     tags: ["React", "Next.js", "MongoDb", "Tailwind"],
     imageUrl: "/p/image-netflex-clone.png",
-    link: "https://priflex.vercel.app/",
+    link: "https://priflex.vercel.app",
   },
   {
     title: "Delta",
