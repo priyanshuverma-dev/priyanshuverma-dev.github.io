@@ -3,6 +3,9 @@ import { Article } from "@/lib/types";
 import SectionHeading from "@/components/section-heading";
 import Post from "@/components/post";
 
+
+export const revalidate = 3600 // revalidate at most every hour
+
 const fetchPost = async (): Promise<Article[]> => {
   const res = await fetch(
     "https://dev.to/api/articles?username=priyanshuverma"
