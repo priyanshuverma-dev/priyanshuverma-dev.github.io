@@ -61,12 +61,12 @@ export const experiencesData = [
 
 export const projectsData = [
   {
-    title: "Saavn Desktop",
+    title: "Sangeet Desktop",
     description:
-      "The Saavn Music Player for Windows, an open-source desktop application that allows you to enjoy your favorite music seamlessly. This music player is powered by the Saavn API and built with Flutter, providing a robust and modern user experience.",
-    tags: ["Flutter", "Riverpod", "Windows", "Music", "Saavn API"],
-    imageUrl: "/p/no-image.png",
-    link: "https://github.com/priyanshuverma-dev/saavn",
+      "The Sangeet Music Player for Windows, an open-source desktop application that allows you to enjoy your favorite music seamlessly. This music player is powered by the Saavn API and built with Flutter, providing a robust and modern user experience.",
+    tags: ["Flutter", "Riverpod", "Windows", "Music", "Sangeet API"],
+    imageUrl: "/p/image-sangeet.png",
+    link: "https://github.com/priyanshuverma-dev/Sangeet",
   },
   {
     title: "Circle Wallet Parody",
@@ -92,7 +92,6 @@ export const projectsData = [
     imageUrl: "/p/image-certifolio.png",
     link: "https://certifolio-web.vercel.app",
   },
-
   {
     title: "Snapline",
     description:
@@ -101,7 +100,6 @@ export const projectsData = [
     imageUrl: "/p/image-snapline.png",
     link: "https://snapLine.vercel.app",
   },
-
   {
     title: "Rainbow",
     description:
@@ -126,7 +124,6 @@ export const projectsData = [
     tags: ["React", "Next.js", "MongoDB", "Tailwind", "Prisma"],
     link: "https://linkey-ws.vercel.app",
   },
-
   {
     title: "Tik Tok Clone",
     description:
@@ -164,7 +161,7 @@ export const projectsData = [
 export const skillsData = [
   "HTML",
   "CSS",
-  "JavaScript",
+  "Rust",
   "TypeScript",
   "React",
   "Next.js",
