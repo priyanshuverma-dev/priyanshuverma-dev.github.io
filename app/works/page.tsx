@@ -15,7 +15,7 @@ const Works = () => (
         {recent.map((work) => (
           <Section delay={work.delay}>
             <WorkGridItem
-              id={work.id}
+              id={work.link}
               title={work.title}
               thumbnail={work.thumb}
             >

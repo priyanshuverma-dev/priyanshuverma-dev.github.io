@@ -70,6 +70,9 @@ const Navbar = () => {
           <LinkItem href="/posts" path={path}>
             Posts
           </LinkItem>
+          <LinkItem href="/contact" path={path}>
+            Contact
+          </LinkItem>
           <LinkItem
             href="https://www.linkedin.com/in/priyanshu-verma-dev"
             path={path}
@@ -122,6 +125,7 @@ const MenuDropdown: React.FC<{ path: string }> = ({ path }) => {
           <MenuLink href="/">About</MenuLink>
           <MenuLink href="/works">Works</MenuLink>
           <MenuLink href="/posts">Posts</MenuLink>
+          <MenuLink href="/contact">Contact</MenuLink>
         </div>
       )}
     </div>

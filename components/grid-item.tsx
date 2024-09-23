@@ -47,9 +47,10 @@ export const WorkGridItem = ({
 }) => (
   <div className="w-full text-center">
     <NextLink
-      href={`/${category}/${id}`}
+      href={category == "works" ? `${id}` : `/${category}/${id}`}
       scroll={false}
       className="block cursor-pointer"
+      target={category == "works" ? "_blank" : "_self"}
     >
       <Image
         src={thumbnail}
@@ -57,7 +58,7 @@ export const WorkGridItem = ({
         className="rounded-lg"
         height={400}
         width={720}
-        style={{ objectFit: "cover" }}
+        style={{ objectFit: "cover", aspectRatio: 16 / 9 }}
       />
       <h3 className="mt-2 text-lg font-semibold">{title}</h3>
       <p className="text-sm">{children}</p>

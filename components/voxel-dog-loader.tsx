@@ -14,7 +14,7 @@ export const DogContainer = forwardRef<HTMLDivElement, DogContainerProps>(
   ({ children }, ref: ForwardedRef<HTMLDivElement>) => (
     <div
       ref={ref}
-      className="voxel-dog mx-auto mt-[-20px] mb-[-40px] sm:mt-[-60px] sm:mb-[-140px] md:mt-[-120px] md:mb-[-200px] w-[280px] h-[280px] sm:w-[480px] sm:h-[480px] md:w-[640px] md:h-[640px] relative"
+      className="voxel-dog mx-auto mt-[-20px]  sm:mt-[-60px] mb-[-40px] sm:mb-[-140px] md:mt-[-120px]  w-[280px] h-[280px] sm:w-[480px] sm:h-[480px] md:w-[640px] md:h-[640px] relative"
     >
       {children}
     </div>
