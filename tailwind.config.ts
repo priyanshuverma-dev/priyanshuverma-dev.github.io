@@ -9,11 +9,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        grassTeal: "#88ccca",
+      },
+      fontFamily: {
+        heading: ["M PLUS Rounded 1c", "sans-serif"],
       },
     },
   },
+  darkMode: "class", // Enable dark mode support
   plugins: [],
 };
 export default config;
