@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export",
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -14,7 +13,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "media.dev.to",
+        hostname: "utfs.io",
         pathname: "/**",
         port: "",
       },

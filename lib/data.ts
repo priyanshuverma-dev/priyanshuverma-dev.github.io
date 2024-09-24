@@ -141,15 +141,27 @@ export const works: Works = {
       id: "stockviz",
       title: "StockViz",
       description: "Embed Real-Time Stock Charts on Your Website.",
-      thumb: "/p/no-image.png",
+      thumb:
+        "https://utfs.io/f/VZFfCDtvlEtcTBma9gjy7dULtnRmfPkC9BJlFqNS5KIZQWr1",
       link: "https://github.com/priyanshuverma-dev/stock-charts",
+      delay: 0.3,
+    },
+    {
+      id: "edunotify",
+      title: "EduNotify",
+      description:
+        "EduNotify is a notice board feature for educational institutions. ",
+      thumb:
+        "https://utfs.io/f/VZFfCDtvlEtcptIbTVJdjw8CvmPQaTGg9bXz6RWIlO1e4Uxt",
+      link: "https://github.com/priyanshuverma-dev/edunotify",
       delay: 0.3,
     },
     {
       id: "checkcup",
       title: "Checkcup",
       description: "Checkcup is a website monitoring tool.",
-      thumb: "/p/image-checkcup.png",
+      thumb:
+        "https://utfs.io/f/VZFfCDtvlEtc4tUAjsK6PfbW5nKNBHeaECs08OgXGYhd1U7q",
       link: "https://quine-checkcup.vercel.app",
       delay: 0.3,
     },
