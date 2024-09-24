@@ -48,7 +48,6 @@ export const WorkGridItem = ({
   <div className="w-full text-center">
     <NextLink
       href={category == "works" ? `${id}` : `/${category}/${id}`}
-      scroll={false}
       className="block cursor-pointer"
       target={category == "works" ? "_blank" : "_self"}
     >

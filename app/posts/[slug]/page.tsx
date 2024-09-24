@@ -42,7 +42,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
               href="/posts"
               className="text-teail-600 hover:underline dark:text-white"
             >
-              Works
+              Posts
             </Link>
             <span className="inline-block mx-2">
               <HiChevronDoubleRight />
@@ -72,15 +72,29 @@ export default async function Post({ params }: { params: { slug: string } }) {
             className="dark:text-white"
           />
         </div>
-        <div className="mt-8 text-sm">
-          <a
+        <div className="mb-4">
+          <Link
+            href="/posts"
+            className="text-teail-600 hover:underline dark:text-white"
+          >
+            Posts
+          </Link>
+          <span className="inline-block mx-2">
+            <HiChevronDoubleRight />
+          </span>
+          <h3 className="inline-block text-[18px] decoration-[#525252] dark:text-white mt-[3px] mb-[4px] text-3xl font-bold">
+            {post.title}
+          </h3>
+        </div>
+        <div className="mt-8 text-sm flex items-center justify-center">
+          <Link
             href={post.canonical_url}
             target="_blank"
             rel="noopener noreferrer"
             className="text-teal-600 underline"
           >
             Read the original article
-          </a>
+          </Link>
         </div>
       </article>
     </>

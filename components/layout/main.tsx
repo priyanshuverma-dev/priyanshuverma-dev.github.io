@@ -18,7 +18,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
       <div className="container mx-auto pt-14">
         <LazyVoxelDog />
         <AnimatePresence
-          mode="wait"
+          mode="popLayout"
           initial={true}
           onExitComplete={() => {
             if (typeof window !== "undefined") {

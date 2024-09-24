@@ -15,10 +15,15 @@ const Home = () => (
         Hello, I&apos;m an open-source developer based in India!
       </div>
 
-      <div className="md:flex">
+      <div className="flex items-center">
         <div className="flex-grow">
-          <h2 className="text-4xl font-bold">Priyanshu Verma</h2>
-          <p>Techy Craftsman ( Founder / Developer / Designer )</p>
+          <h2 className="sm:text-4xl font-bold  text-3xl">Priyanshu Verma</h2>
+          <div className="sm:flex flex-row">
+            <p className="sm:mr-1">Techy Craftsman </p>
+            <p className="hidden sm:block">
+              ( Founder / Developer / Designer )
+            </p>
+          </div>
         </div>
         <div className="flex-shrink-0 mt-4 md:mt-0 md:ml-6 text-center">
           <div className="border-2 border-white rounded-full w-24 h-24 overflow-hidden">
@@ -72,7 +77,7 @@ const Home = () => (
         <BioSection year="2022">Found Mobile Dev interesting</BioSection>
         <BioSection year="2023">Got experience in Web dev</BioSection>
         <BioSection year="2024">Completed 10th grade</BioSection>
-        <BioSection year="2024 to present">
+        <BioSection year="present">
           Working as indie dev and open-source contributor
         </BioSection>
       </Section>
@@ -131,7 +136,7 @@ const Home = () => (
               className="bg-transparent text-teal-600 px-4 py-2 rounded flex items-center"
             >
               <IoLogoLinkedin className="mr-2" />
-              @priyanshuverma-dev
+              @priyanshu-verma-dev
             </NextLink>
           </li>
           <li>

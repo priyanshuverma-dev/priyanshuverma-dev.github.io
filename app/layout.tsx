@@ -17,9 +17,6 @@ const font_700 = localFont({
   display: "swap",
 });
 
-if (typeof window !== "undefined") {
-  window.history.scrollRestoration = "manual";
-}
 export const metadata: Metadata = {
   title: "Priyanshu Verma",
   description: "Priyanshu's homepage",
@@ -50,7 +47,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${font_300.className} ${font_700.className}  antialiased bg-[#f0e7db] dark:bg-[#202023]`}
+        className={`${font_300.className} ${font_700.className} antialiased bg-[#f0e7db] dark:bg-[#202023]`}
       >
         <Providers>
           <Layout>

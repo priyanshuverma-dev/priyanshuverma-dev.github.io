@@ -15,6 +15,7 @@ const Works = () => (
         {recent.map((work) => (
           <Section delay={work.delay}>
             <WorkGridItem
+              key={work.id}
               id={work.link}
               title={work.title}
               thumbnail={work.thumb}
@@ -37,6 +38,7 @@ const Works = () => (
         {collaborations.map((work) => (
           <Section delay={work.delay}>
             <WorkGridItem
+              key={work.id}
               id={work.id}
               title={work.title}
               thumbnail={work.thumb}
@@ -59,6 +61,7 @@ const Works = () => (
         {old.map((work) => (
           <Section delay={work.delay}>
             <WorkGridItem
+              key={work.id}
               id={work.id}
               title={work.title}
               thumbnail={work.thumb}

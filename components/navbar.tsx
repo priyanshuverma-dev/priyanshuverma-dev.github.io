@@ -121,7 +121,7 @@ const MenuDropdown: React.FC<{ path: string }> = ({ path }) => {
         </svg>
       </button>
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 shadow-lg rounded-md">
+        <div className="flex flex-col items-center space-y-2 py-2 absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 shadow-lg rounded-md">
           <MenuLink href="/">About</MenuLink>
           <MenuLink href="/works">Works</MenuLink>
           <MenuLink href="/posts">Posts</MenuLink>
