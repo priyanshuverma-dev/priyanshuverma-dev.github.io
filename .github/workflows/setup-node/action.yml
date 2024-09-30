@@ -1,5 +1,5 @@
 name: setup-node
-description: "Setup Node.js ⚙️ - Cache dependencies ⚡ - Install dependencies 🔧"
+description: "Setup Node.js ⚙️ - Install dependencies 🔧"
 runs:
   using: "composite"
   steps:
@@ -8,14 +8,8 @@ runs:
       with:
         node-version: 20
 
-    - name: Cache dependencies ⚡
-      id: cache_dependencies
-      uses: actions/cache@v3
-      with:
-        path: node_modules
-        key: node-modules-${{ hashFiles('package-lock.json') }}
-
     - name: Install dependencies 🔧
-      shell: bash
-      if: steps.cache_dependencies.outputs.cache-hit != 'true'
-      run: npm ci
+      uses: oven-sh/setup-bun@v2
+      with:
+        bun-version: latest
+        run: bun install
