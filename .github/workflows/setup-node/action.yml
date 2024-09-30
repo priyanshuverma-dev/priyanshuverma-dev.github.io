@@ -9,7 +9,5 @@ runs:
         node-version: 20
 
     - name: Install dependencies 🔧
-      uses: oven-sh/setup-bun@v2
-      with:
-        bun-version: latest
-        run: bun install
+      shell: bash
+      run: npm i
