@@ -1,34 +1,50 @@
 import { notFound } from "next/navigation";
 import md from "markdown-it";
 import Image from "next/image";
-import { extractS3Url } from "@/lib/utils";
+import { extractS3Url, fetchPost, fetchPosts } from "@/lib/utils";
 import { HiChevronDoubleRight } from "react-icons/hi";
 import Link from "next/link";
+import { Metadata, ResolvingMetadata } from "next";
 
-type Post = {
-  title: string;
-  description: string;
-  slug: string;
-  readable_publish_date: string;
-  canonical_url: string;
-  body_markdown: string;
-  reading_time_minutes: string;
-  social_image: string;
+type Props = {
+  params: { slug: string };
 };
 
-const fetchPost = async (slug: string): Promise<Post | null> => {
-  const res = await fetch(`https://dev.to/api/articles/priyanshuverma/${slug}`);
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // read route params
+  const id = params.slug;
 
-  const data = res.json();
+  // fetch data
+  const post = await fetchPost(id);
+  if (post == null) return notFound();
+  // optionally access and extend (rather than replace) parent metadata
+  const previousImages = (await parent).openGraph?.images || [];
 
-  if (res.status != 200) {
-    return null;
-  }
+  return {
+    title: post.title,
+    description: post.description,
+    category: "Tech",
+    authors: {
+      name: "Priyanshu Verma",
+    },
+    openGraph: {
+      images: [post.social_image, ...previousImages],
+    },
+  };
+}
 
-  return data;
-};
+export async function generateStaticParams() {
+  const posts = await fetchPosts();
 
-export default async function Post({ params }: { params: { slug: string } }) {
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
+}
+
+export default async function Post({ params }: Props) {
   const post = await fetchPost(params.slug);
   if (post == null) return notFound();
 

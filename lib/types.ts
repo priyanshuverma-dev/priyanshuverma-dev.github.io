@@ -34,3 +34,15 @@ export type Article = {
     profile_image_90: string;
   };
 };
+
+export type Post = {
+  title: string;
+  description: string;
+  slug: string;
+  readable_publish_date: string;
+  canonical_url: string;
+  body_markdown: string;
+  reading_time_minutes: string;
+  cover_image: string;
+  social_image: string;
+};
