@@ -2,6 +2,12 @@ import Layout from "@/components/layout/article";
 import Section from "@/components/section";
 import { WorkGridItem } from "@/components/grid-item";
 import { works } from "@/lib/data";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Work",
+  description: "Works of Priyanshu",
+};
 
 const { collaborations, old, recent } = works;
 const Works = () => (

@@ -1,4 +1,10 @@
+import { Metadata } from "next";
 import NextLink from "next/link";
+
+export const metadata: Metadata = {
+  title: "Page not found",
+  description: "Page is not found",
+};
 
 const NotFound = () => {
   return (

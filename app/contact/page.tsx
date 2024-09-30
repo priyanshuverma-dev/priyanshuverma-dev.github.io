@@ -1,7 +1,12 @@
-"use client";
+import ContactForm from "@/components/contact";
 import Layout from "@/components/layout/article";
-import { Widget } from "@typeform/embed-react";
+import { Metadata } from "next";
 import React from "react";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description: "Contact Priyanshu Verma",
+};
 
 export default function ContactPage() {
   return (
@@ -17,7 +22,7 @@ export default function ContactPage() {
           </a>{" "}
           or through this form.
         </p>
-        <Widget id="cmOmloEL" className="h-[500px] mt-4" hideHeaders />
+        <ContactForm />
       </div>
     </Layout>
   );
