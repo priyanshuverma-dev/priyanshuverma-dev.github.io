@@ -18,7 +18,10 @@ const font_700 = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Priyanshu Verma",
+  title: {
+    default: "Priyanshu Verma",
+    template: "%s | Priyanshu Verma",
+  },
   description: "Priyanshu's homepage",
   authors: {
     name: "Priyanshu Verma",

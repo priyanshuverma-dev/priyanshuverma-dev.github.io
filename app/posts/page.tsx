@@ -1,27 +1,13 @@
 import { WorkGridItem } from "@/components/grid-item";
 import Layout from "@/components/layout/article";
 import Section from "@/components/section";
-import { Article } from "@/lib/types";
-import { extractS3Url } from "@/lib/utils";
+import { extractS3Url, fetchPosts } from "@/lib/utils";
+import { Metadata } from "next";
 import React from "react";
 
-const fetchPosts = async (): Promise<Article[]> => {
-  const res = await fetch(
-    "https://dev.to/api/articles?username=priyanshuverma",
-    {
-      headers: {
-        "API-KEY": "aQvg4u355ZeX8rzZuZsG4UQz",
-      },
-    }
-  );
-
-  const data = res.json();
-
-  if (res.status != 200) {
-    return [];
-  }
-
-  return data;
+export const metadata: Metadata = {
+  title: "Posts",
+  description: "Writings of Priyanshu",
 };
 
 export default async function Posts() {
@@ -37,7 +23,7 @@ export default async function Posts() {
           {posts.map((work) => (
             <Section>
               <WorkGridItem
-                id={work.slug}
+                id={work.canonical_url}
                 title={work.title}
                 thumbnail={extractS3Url(work.social_image)}
                 category="posts"
