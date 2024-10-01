@@ -49,7 +49,7 @@ const Home = () => (
           all the way to solving real-life problems with code and deploying.
           When not online, he loves hanging out with his pen and paper.
           Currently, he is living off of his own product called{" "}
-          <NextLink href="/works/OnSchola" passHref>
+          <NextLink href="https://github.com/OnSchola" target="_blank" passHref>
             <span className="text-teal-600 hover:underline">OnSchola</span>
           </NextLink>
           . He do open-source for gaining experience and build stuff from
@@ -105,8 +105,7 @@ const Home = () => (
           </NextLink>
           , IOT,{" "}
           <NextLink
-            href="https://dev.to/priyanshuverma"
-            target="_blank"
+            href="/posts"
             className="text-teal-600 hover:underline"
           >
             Writing
