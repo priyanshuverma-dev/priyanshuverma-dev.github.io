@@ -23,7 +23,7 @@ export default async function Posts() {
           {posts.map((work) => (
             <Section>
               <WorkGridItem
-                id={work.canonical_url}
+                id={work.slug}
                 title={work.title}
                 thumbnail={extractS3Url(work.social_image)}
                 category="posts"
