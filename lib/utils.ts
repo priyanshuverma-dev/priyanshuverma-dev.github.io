@@ -1,6 +1,7 @@
 import { Article, Post } from "./types";
 
 export function extractS3Url(url: string) {
+  return url;
   // Find the second "https" part in the URL
   if (!url.includes("/https%3A%2F%2F")) return url;
   const encodedS3Url = url.split("/https%3A%2F%2F")[1];
