@@ -5,6 +5,7 @@ import Layout from "@/components/layout/main";
 import { Analytics } from "@vercel/analytics/react";
 
 import localFont from "next/font/local";
+import Script from "next/script";
 
 const font_300 = localFont({
   src: "./fonts/font-300.ttf",
@@ -58,6 +59,7 @@ export default function RootLayout({
             <Analytics />
           </Layout>
         </Providers>
+        <Script src="https://cdn.jsdelivr.net/gh/KeptCodes/StatStream@master/scripts/tracker.js" />
       </body>
     </html>
   );
