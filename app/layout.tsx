@@ -2,7 +2,6 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Providers } from "./providers";
 import Layout from "@/components/layout/main";
-import { Analytics } from "@vercel/analytics/react";
 
 import localFont from "next/font/local";
 
@@ -55,7 +54,6 @@ export default function RootLayout({
         <Providers>
           <Layout>
             {children}
-            <Analytics />
           </Layout>
         </Providers>
       </body>
