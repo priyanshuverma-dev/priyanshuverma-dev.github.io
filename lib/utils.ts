@@ -15,7 +15,7 @@ export const fetchPost = async (slug: string): Promise<Post | null> => {
 };
 export const fetchPosts = async (): Promise<Article[]> => {
   const res = await fetch(
-    "https://dev.to/api/articles?username=priyanshuverma?per_page=50",
+    "https://dev.to/api/articles?username=priyanshuverma&per_page=50",
   );
 
   const data = res.json();
