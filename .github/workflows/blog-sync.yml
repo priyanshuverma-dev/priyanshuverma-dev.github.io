@@ -18,6 +18,6 @@ jobs:
         uses: Anmol-Baranwal/DevtoGitHub@v1
         with:
           devApiKey: ${{ secrets.DEV_TOKEN }}
-          saveArticles: false
+          saveArticles: true
           outputDir: "articles"
           saveArticlesReadme: true # this will create a table of content for easy navigation

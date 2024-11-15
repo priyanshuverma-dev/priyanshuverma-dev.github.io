@@ -10,4 +10,4 @@ runs:
 
     - name: Install dependencies 🔧
       shell: bash
-      run: npm i
+      run: npm i --force
