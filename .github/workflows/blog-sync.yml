@@ -1,11 +1,14 @@
-name: Blogs Sync
+name: Blogs-sync
 
 on:
   schedule:
-    - cron: "30 17 * * 1" # Run on Mondays
+    - cron: "0 0 * * 0" # Run on Mondays
   workflow_dispatch:
   push:
     branches: ["v1"]
+
+permissions:
+  contents: write
 
 jobs:
   save-articles:
