@@ -1,32 +1,33 @@
 import { getBlogPosts, getPost } from "@/lib/blog";
 import { DATA } from "@/lib/data";
-import type { Metadata } from "next";
+import type { Metadata, ResolvingMetadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
+
+type Props = {
+  params: Promise<{ slug: string }>;
+};
 
 export async function generateStaticParams() {
   const posts = await getBlogPosts();
   return posts.map((post) => ({ slug: post.slug }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: {
-    slug: string;
-  };
-}): Promise<Metadata | undefined> {
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
   const { slug } = await params;
-  let post = await getPost(slug);
+  const post = await getPost(slug);
 
-  let {
+  const {
     title,
     publishedAt: publishedTime,
     summary: description,
     image,
   } = post.metadata;
-  let ogImage = image;
+  const ogImage = image;
 
   return {
     title,
@@ -52,15 +53,9 @@ export async function generateMetadata({
   };
 }
 
-export default async function Blog({
-  params,
-}: {
-  params: {
-    slug: string;
-  };
-}) {
+export default async function Blog({ params }: Props) {
   const { slug } = await params;
-  let post = await getPost(slug);
+  const post = await getPost(slug);
 
   if (!post) {
     notFound();
