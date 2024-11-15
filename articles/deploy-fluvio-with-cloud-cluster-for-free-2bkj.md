@@ -1,16 +1,12 @@
-  <img src="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fq77uo6x7kn3hdf7w1xe5.png" alt="Cover Image" />
-  <hr />
-  
-  # Deploy Fluvio with Cloud Cluster for free.
-  
-  **Tags:** `fluvio`, `programming`, `buildinpublic`, `realtimedata`
+---
+title: "Deploy Fluvio with Cloud Cluster for free."
+publishedAt: "2024-11-14"
+summary: "Hello builders, Many of you knows me but in case I am Priyanshu Verma, An Open-source Indie..."
+image: "https://media2.dev.to/dynamic/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fq77uo6x7kn3hdf7w1xe5.png"
+slug: "deploy-fluvio-with-cloud-cluster-for-free-2bkj"
+---
 
-  **Published At:** 11/14/2024, 11:49:23 AM
-
-  **URL:** [https://dev.to/priyanshuverma/deploy-fluvio-with-cloud-cluster-for-free-2bkj](https://dev.to/priyanshuverma/deploy-fluvio-with-cloud-cluster-for-free-2bkj)
-
-  <hr />
-  Hello builders,
+Hello builders,
 Many of you knows me but in case I am Priyanshu Verma, An Open-source Indie Developer.
 
 In this Article we are going to talk about how you can deploy Fluvio integrated apps like APIs on internet for free.
@@ -22,7 +18,7 @@ This is a basic Nodejs Express API with some endpoints and fluvio integration. I
 
 ## My Project Tree
 See the Project tree as that will help in understanding what I am say in later sections.
-```bash
+~~~bash
 .
 ├── Dockerfile
 ├── bun.lockb
@@ -35,7 +31,7 @@ See the Project tree as that will help in understanding what I am say in later s
 │   └── lib.ts
 ├── package.json
 └── tsconfig.json
-```
+~~~
 
 
 ## 1. Create an account on Infinyon Cloud
@@ -46,13 +42,13 @@ You need to install Fluvio CLI locally for testing and adding connectors to clou
 To install Fluvio CLI follow [official Website](https://www.fluvio.io/docs/fluvio/quickstart). Or follow me
 
 Run command inside you terminal make sure on windows you use WSL.
-```bash
+~~~bash
 curl -fsS https://hub.infinyon.cloud/install/install.sh | bash
-```
+~~~
 After installation you need to add Fluvio to PATH by
-```bash
+~~~bash
  echo 'export PATH="${HOME}/.fvm/bin:${HOME}/.fluvio/bin:${PATH}"' >> ~/.zshrc
-```
+~~~
 Now you will be able to use `fluvio` command in your terminal. If not then try again.
 
 
@@ -60,39 +56,39 @@ Now you will be able to use `fluvio` command in your terminal. If not then try a
 ## 3. Login with your Credentials and push connectors
 Now, We are going to login with our email and password in Fluvio CLI so, that we can have access to Cloud Clusters.
 To do so run command
-```bash
+~~~bash
 fluvio cloud login
-```
+~~~
 It will ask for Email and Password Use what you created when signing in InfinyOn Cloud account.
 You can check your clusters by command
-```bash
+~~~bash
 fluvio cloud cluster list
-```
+~~~
 If you have any then it will show you else it will show `No clusters found`. You can create cluster by the command
-```bash
+~~~bash
 fluvio cloud cluster create
-```
+~~~
 it will show something like this
-```bash
+~~~bash
 Creating cluster...
 Done!
 Downloading cluster config
 Switched to new profile: withered-frog
-```
+~~~
 You will get any other Profile name at place of `withered-frog`.
 Now, What you need to do is switch you profile to what you have created for me it is `withered-frog`. By default after creating a cluster you would be on that cluster's Profile. If you are not then switch to that. You can check it by command
-```bash
+~~~bash
 fluvio profile
-```
+~~~
 on case To switch use command
-```bash
+~~~bash
 fluvio profile switch <profile name>
-```
+~~~
 `<profile name>` is the cluster you created in my case it would be `withered-frog`.
 
 Now, Let's Push our connector on Cloud cluster which is 
 `/cloud/sinker.yml`
-```yml
+~~~yml
 apiVersion: 0.1.0
 meta:
   version: 0.3.8
@@ -103,17 +99,17 @@ meta:
 http:
   endpoint: "http://deployed.url/sync"
   interval: 120s
-```
+~~~
 I will change this `http://deployed.url/sync` to deployed URL later.
 It is for my example project yours can be different and more then one.
 To Push this connector will use command
-```bash
+~~~bash
 fluvio cloud connector create --config cloud/sinker.yml
-```
+~~~
 You will get something like this
-```bash
+~~~bash
 connector "stocks-sinker" (http-source) created
-```
+~~~
 You can have multiple connector can be created similarly.
 
 
@@ -123,15 +119,15 @@ From here we have two ways to build Docker Image for the Project. It depends on 
 
 ###  Approach A
 For this I am assuming you have a codebase that can keep secret config files. To deploy we need a `config` file that we can use to login on server to get that inside terminal we need to export our profile by the command
-```bash
+~~~bash
 fluvio profile export > config
-```
+~~~
 It will export all configs in a file named `config` inside the folder.
 
 Now, Create a `Dockerfile` like in project tree.
 
 With the code of your project deploy pipelines 
-```dockerfile
+~~~dockerfile
 FROM node:18
 
 ENV TZ=America/New_York
@@ -174,7 +170,7 @@ RUN cp ./config /root/.fluvio/
 EXPOSE 3000
 
 CMD [ "bun","run","dev" ]
-```
+~~~
 You can see it is self explanatory as the main thing is installing fluvio and adding config file that we exported to the path `/root/.fluvio/`.
 You can also change the default path of fluvio config by adding a environment variable `FLV_PROFILE_PATH`. For now, I just copied to default path.
 This was the first approach. Now you can deploy this on any free Platform with docker Image. 
@@ -184,7 +180,7 @@ Will tell how to deploy after telling second Approach.
 ###  Approach B
 This is if your project is public on GitHub or if you can't keep secrets in codebase.
 You also need to create a `Dockerfile` like this 
-```dockerfile
+~~~dockerfile
 FROM node:18
 
 ENV TZ=America/New_York
@@ -235,11 +231,11 @@ EXPOSE 3000
 
 
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
-```
+~~~
 Here also we are doing same thing installing fluvio and running a file named `entrypoint.sh` which we have in codebase you can see in project tree.
 Let's see what is inside the file `entrypoint.sh`.
 
-```sh
+~~~sh
 #!/bin/bash
 
 # Log in to Fluvio
@@ -251,7 +247,7 @@ fluvio cloud cluster sync
 
 # Start the application
 exec bun run dev
-```
+~~~
 Here you can see, We are getting `FLUVIO_CLOUD_EMAIL` and `FLUVIO_CLOUD_PASSWORD` from environment variables and logging in. Then we are syncing the config file. 
 You can set Environment Variables without exposing them and making it save.
 
@@ -288,5 +284,5 @@ Thanks for reading....
 
 
 
-    
-  
+
+ 

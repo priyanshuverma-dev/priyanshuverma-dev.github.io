@@ -1,16 +1,12 @@
-  <img src="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fwoq62y4mm3opdvhcnku7.png" alt="Cover Image" />
-  <hr />
-  
-  # Fluvio - An open-source In-motion data framework.
-  
-  **Tags:** `fluvio`, `beginners`, `programming`, `realtimedatastream`
+---
+title: "Fluvio - An open-source In-motion data framework."
+publishedAt: "2024-08-20"
+summary: "Hello enthusiasts,  Today we are going to learn about Fluvio work with this technology. This post is..."
+image: "https://media2.dev.to/dynamic/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fwoq62y4mm3opdvhcnku7.png"
+slug: "fluvio-a-open-source-in-motion-data-framework-3927"
+---
 
-  **Published At:** 8/20/2024, 4:59:24 PM
-
-  **URL:** [https://dev.to/priyanshuverma/fluvio-a-open-source-in-motion-data-framework-3927](https://dev.to/priyanshuverma/fluvio-a-open-source-in-motion-data-framework-3927)
-
-  <hr />
-  Hello enthusiasts,
+Hello enthusiasts,
 
 Today we are going to learn about [Fluvio](https://www.fluvio.io/) work with this technology. This post is not about theory it's a practical based article. You can checkout Fluvio's own [blogs](https://www.infinyon.com/blog/2021/06/introducing-fluvio/) to learn about fluvio deep. 
 
@@ -38,24 +34,24 @@ Let's go step-by-step
 
 Use To fluvio we need to install [Fluvio CLI](https://www.fluvio.io/docs/fluvio/cli/overview). We need a Docker or linux machine to install Fluvio. I will use [WSL](https://learn.microsoft.com/en-us/windows/wsl/install). 
 To install fluvio run:
-```bash
+~~~bash
 curl -fsS https://hub.infinyon.cloud/install/install.sh | bash
-```
+~~~
 For Docker follow official fluvio [steps](https://www.fluvio.io/docs/fluvio/installation/docker).
 
 Now you need to start the fluvio cluster
-```bash
+~~~bash
 fluvio cluster start
-```
+~~~
 If you need to start it a second time use this command:
-```bash
+~~~bash
 fluvio cluster resume
-```
+~~~
 
 ## Step 2: Set up project folder and file structure.
 
 Create a folder and open it in **VSCode** (you can use anything).
-```
+~~~
 ├── server/
 │   ├── index.ts           # Main server code
 ├── client/
@@ -68,7 +64,7 @@ Create a folder and open it in **VSCode** (you can use anything).
     ├── amzn.yml  # Example YAML file for defining HTTP sources
     └── deploy.sh          # Script for deploying and creating Fluvio 
 
-```
+~~~
 We have create **3 sub-folders**:
 - server - (express server code)
 - client - (next.js app)
@@ -77,23 +73,23 @@ We have create **3 sub-folders**:
 ## Step 3: Write server code to create APIS
 
 - In the created folder `server` initialize the project with:
-```bash
+~~~bash
 bun init
-```
+~~~
 You can use `npm` also. Using bash for type script.
 
 - Install required dependencies:
-```bash
+~~~bash
 bun add @fluvio/client cors express yahoo-finance2
-```
+~~~
 Install types also if you are using TypeScript:
-```bash
+~~~bash
 bun add -D @types/cors @types/express
-```
+~~~
  
 - Open the `index.ts` file created while initializing the project and write some code.
 
-```typescript
+~~~typescript
 import yahooFinance from "yahoo-finance2";
 
 import Express from "express";
@@ -197,7 +193,7 @@ app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}/`);
 });
 
-```
+~~~
 
 It is a very basic express API server with mainly **3 endpoints**:
 
@@ -216,9 +212,9 @@ We will name topics with stock symbols of the company that will help as you see 
 Comeon We all know how to create a next.js project do this yourself you are a dev! make a project with typescript, tailwindcss, and app dir.
 
 - Install required dependencies:
-```bash
+~~~bash
 bun add moment recharts
-```
+~~~
 
 
 - Now create a folder named `components` and add **2 files**"
@@ -227,7 +223,7 @@ bun add moment recharts
 
 
 ## StockChart.tsx
-```tsx
+~~~tsx
 "use client";
 
 import { useEffect, useState } from "react";
@@ -310,12 +306,12 @@ const StockChart = () => {
 
 export default StockChart;
 
-```
+~~~
 This component is a client-side component that fetches real-time events from the express API server we created. You can analyse the code It has a very simple Chart with Price and time. One State to set stock data and get a stock symbol from search params.
 
 
 ## StockSwitch.tsx
-```tsx
+~~~tsx
 
 import Link from "next/link";
 import React from "react";
@@ -356,12 +352,12 @@ export default async function StockSwitch() {
   );
 }
 
-```
+~~~
 
 A very simple component fetches data and populates the topics from fluvio using our express server API.
 
 ## Now link all the parts in `page.tsx`
-```tsx
+~~~tsx
 import StockChart from "@/components/StockChart";
 import StockSwitch from "@/components/StockSwitch";
 import Link from "next/link";
@@ -391,7 +387,7 @@ export default function Home() {
   );
 }
 
-```
+~~~
 
 ## Step 5: Real magic of Fluvio!
 
@@ -399,7 +395,7 @@ export default function Home() {
 - Create `[STOCKNAME].yml` files for stock prices
 - Creating one for appl:
 
-```yml
+~~~yml
 apiVersion: 0.1.0
 
 meta:
@@ -413,13 +409,13 @@ http:
   method: GET
   interval: 3s
 
-```
+~~~
 
 In this file, we are using a source connector `http-source` and pulling data from our express API server. With `GET` method with `3s` interval.
 
 You can add more stocks like this with just [STOCKNAME] change (example.yml):
 
-```yml
+~~~yml
 apiVersion: 0.1.0
 
 meta:
@@ -433,22 +429,22 @@ http:
   method: GET
   interval: 3s
 
-```
+~~~
 
 ## STEP 6: The now final step of the game
 
 - Inside `http-sources` folder run command:
-```bash
+~~~bash
 cdk hub download infinyon/http-source@0.3.8
-```
+~~~
 This will download the file required for fluvio `yml`.
 
 - Create a topic in fluvio (remember topic name should be unique and should be the same as written in .yml file for me it is {STOCKNAME} or apply)
 
 Run command:
-```bash
+~~~bash
 fluvio topic create appl
-```
+~~~
 
 - Lastly deploy the .yml file:
 cdk deploy start --ipkg infinyon-http-source-0.3.8.ipkg -c appl.yml
@@ -460,7 +456,7 @@ To make your life more easier I wrote a `deploy.sh` file that will do this Slep 
 
 `deploy.sh`:
 
-```sh
+~~~sh
 #!/bin/bash
 
 # Set variables
@@ -522,12 +518,12 @@ create_topics
 deploy_configurations
 
 echo "Script execution completed."
-```
+~~~
 
 Run Command:
-```bash
+~~~bash
 ./deploy.sh
-```
+~~~
 Now you are good to go. 
 
 ## Finishing Up.
@@ -598,5 +594,5 @@ Priyanshu Verma
 
 
 
-    
-  
+
+ 

@@ -7,29 +7,6 @@ import rehypeStringify from "rehype-stringify";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import { unified } from "unified";
-// export async function getBlogPosts(): Promise<Article[]> {
-//   try {
-//     const res = await axios.get("https://dev.to/api/articles?username=priyanshuverma&per_page=50");
-//     const data = res.data;
-//     return data;
-//   } catch (error) {
-//     return [];
-
-//   }
-// }
-// export async function getPost(slug: string): Promise<Post | null> {
-//   try {
-//     const res = await axios.get(`https://dev.to/api/articles/priyanshuverma/${slug}`);
-//     const data = res.data;
-
-
-//     return data;
-//   } catch (error) {
-//     return null;
-
-//   }
-// }
-
 
 type Metadata = {
   title: string;
@@ -39,7 +16,7 @@ type Metadata = {
 };
 
 function getMDXFiles(dir: string) {
-  return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx");
+  return fs.readdirSync(dir).filter((file) => path.extname(file) === ".md");
 }
 
 export async function markdownToHTML(markdown: string) {
@@ -61,7 +38,7 @@ export async function markdownToHTML(markdown: string) {
 }
 
 export async function getPost(slug: string) {
-  const filePath = path.join("articles", `${slug}.mdx`);
+  const filePath = path.join("articles", `${slug}.md`);
   let source = fs.readFileSync(filePath, "utf-8");
   const { content: rawContent, data: metadata } = matter(source);
   const content = await markdownToHTML(rawContent);

@@ -1,16 +1,12 @@
-  <img src="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F4girznfwedbx5fp04wue.png" alt="Cover Image" />
-  <hr />
-  
-  # Let's integrate auth.js with Supabase!
-  
-  **Tags:** `webdev`, `supabase`, `beginners`, `nextjs`
+---
+title: "Let's integrate auth.js with Supabase!"
+publishedAt: "2024-08-05"
+summary: "Hello everyone, Recently I was building a chat app. It was very quick to build a real-time app with..."
+image: "https://media2.dev.to/dynamic/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F4girznfwedbx5fp04wue.png"
+slug: "lets-integrate-authjs-with-supabase-mf7"
+---
 
-  **Published At:** 8/5/2024, 1:37:53 PM
-
-  **URL:** [https://dev.to/priyanshuverma/lets-integrate-authjs-with-supabase-mf7](https://dev.to/priyanshuverma/lets-integrate-authjs-with-supabase-mf7)
-
-  <hr />
-  Hello everyone,
+Hello everyone,
 Recently I was building a chat app. It was very quick to build a real-time app with supabase. I was amazed.
 I used this tech stack:
 * [Next.js](https://nextjs.org)
@@ -22,9 +18,9 @@ I am not going to cover full project in this post feel free to comment for that.
 ## Step 1: Create a next.js project.
 There are many ways to create next.js project. I am going to use [Bun](https://bun.sh). It is faster then alternatives as of now 😊.
 
-```bash
+~~~bash
 bun create next-app supa-auth
-```
+~~~
 create a project by this command replace `supa-auth` with your project name. It will ask several questions chose as per your choice. I will use **typescript**.
 
 You can open this project in any code editor you want I am using [Vscode](https://code.visualstudio.com).
@@ -41,23 +37,23 @@ Now you will be redirected to this screen:
 ![Supabase project dashboard](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/q66wkgd7kqx11ct4j9zv.png)
 
 Copy **Project URL** and **API Key** go to your project directory create a `.env` file and this fields:
-```env
+~~~env
 NEXT_PUBLIC_SUPABASE_URL= <your project url>
 SUPABASE_ANON_KEY= <your project api key>
-```
+~~~
 
 ## Step 3: Setup auth.js with simple UI.
 Let's install dependencies for auth.js
-```bash
+~~~bash
 bun add next-auth@beta @supabase/supabase-js @auth/supabase-adapter
-```
+~~~
 These are the dependencies you need to install to setup supabase with auth.js.
 
 After installation Setup auth.js
 Create a `auth.ts` file in root of your project (if you selected `src` folder during installation then create file inside `src`).
 
 This file will look like this:
-```ts
+~~~ts
 import { SupabaseAdapter } from "@auth/supabase-adapter";
 import NextAuth from "next-auth";
 import Google from "next-auth/providers/google";
@@ -71,13 +67,13 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   debug: process.env.NODE_ENV === "development",
   session: { strategy: "jwt" },
 });
-```
+~~~
 
 You can tweak this file as per your requirement. I am going to use Google Oauth to signin you can use others also. you can see from [auth.js docs](https://authjs.dev).
 
 Add Google Client ID and Secret in `.env` file and add auth secret for auth.js like this:
 
-```
+~~~
 NEXT_PUBLIC_SUPABASE_URL= <your project url>
 SUPABASE_ANON_KEY= <your project api key>
 
@@ -85,7 +81,7 @@ AUTH_SECRET="secret-for-authjs" # change this
 
 AUTH_GOOGLE_ID= <your google client id>
 AUTH_GOOGLE_SECRET= <your google client secret>
-```
+~~~
 **Remember** to write variable name as given for `AUTH_GOOGLE_ID`, `AUTH_GOOGLE_SECRET` and `AUTH_SECRET`. It is required [see more](https://authjs.dev/guides/environment-variables)
 
 You will get Google client id and secret from [Google Cloud Console](https://console.cloud.google.com/).
@@ -95,25 +91,25 @@ Add this to Authorised redirect URIs: `https://localhost:3000/api/auth/callback/
 
 Now create a `middlware.ts` file in root of your project beside `auth.ts`.
 
-```ts
+~~~ts
 export { auth as middleware } from "@/auth"
 
 export const config = {
   matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/(api|trpc)(.*)"],
 };
-```
+~~~
 Finally Add a Route Handler under `/app/api/auth/[...nextauth]/route.ts`.
 Add this to the file:
-```ts
+~~~ts
 import { handlers } from "@/auth" // Referring to the auth.ts we just created
 export const { GET, POST } = handlers
 
-```
+~~~
 
 ## Step 4: Now create a signin Button component.
 create a file `/components/sign-in.tsx`.
 with this content:
-```ts
+~~~ts
 
 import { signIn } from "@/auth"
  
@@ -130,7 +126,7 @@ export function SignIn() {
   )
 } 
 
-```
+~~~
 Now Just add this component to make user signin by clicking on this button.
 
 ## Step 5: Bind Supabase db with auth.js (Important)
@@ -142,7 +138,7 @@ Click on **SQL Editor** looks like this:
 ![Supabase SQL Editor](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/peehezkb4y8e9zw5wzbe.png)
 
 Paste this into editor and run [(learn more)](https://authjs.dev/getting-started/adapters/supabase#schema):
-```sql
+~~~sql
 --
 -- Name: next_auth; Type: SCHEMA;
 --
@@ -245,7 +241,7 @@ CREATE TABLE IF NOT EXISTS  next_auth.verification_tokens
 GRANT ALL ON TABLE next_auth.verification_tokens TO postgres;
 GRANT ALL ON TABLE next_auth.verification_tokens TO service_role;
 
-```
+~~~
 
 After successfully execution go to your **project settings** inside `Configuration` click on API and scroll to **Data API Settings** looks like this:
 
@@ -261,15 +257,15 @@ In **Exposed schemas** add `next-auth` like this:
 
 Step 5: Run Project 
 Now you can run your next.js project with
-```bash
+~~~bash
 bun dev
-```
+~~~
 
 Now visit `https://localhost:3000` it will redirect you to `https://localhost:3000/api/auth/signin`.
 You can signin with Google.
 
 Further you can add Auth Page to override this default page by editing `auth.ts`:
-```ts
+~~~ts
 import { SupabaseAdapter } from "@auth/supabase-adapter";
 import NextAuth from "next-auth";
 import Google from "next-auth/providers/google";
@@ -287,14 +283,14 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   },
 });
 
-```
+~~~
 replace `<sigin-page-url>` with your auth page.
 
 
 These were the easiest steps to setup supabase with auth.js. now you need to just call:
-```ts
+~~~ts
  const session = await auth()
-```
+~~~
 To get user session don't need to create you own context and hooks.👍
 For more information read official auth.js [Docs](https://authjs.dev/getting-started/session-management/get-session)
 
@@ -317,5 +313,5 @@ Priyanshu Verma
 
 
 
-    
-  
+
+ 

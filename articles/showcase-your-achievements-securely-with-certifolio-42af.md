@@ -1,16 +1,12 @@
-  <img src="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Ftygh4wmc7rez9mirmr1n.png" alt="Cover Image" />
-  <hr />
-  
-  # Showcase Your Achievements Securely with CertiFolio 🚀
-  
-  **Tags:** `webdev`, `programming`, `certification`, `opensource`
+---
+title: "Showcase Your Achievements Securely with CertiFolio 🚀"
+publishedAt: "2024-06-22"
+summary: "Hello Dev.to community!  We're thrilled to introduce CertiFolio, a groundbreaking platform designed..."
+image: "https://media2.dev.to/dynamic/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Ftygh4wmc7rez9mirmr1n.png"
+slug: "showcase-your-achievements-securely-with-certifolio-42af"
+---
 
-  **Published At:** 6/22/2024, 3:48:13 AM
-
-  **URL:** [https://dev.to/priyanshuverma/showcase-your-achievements-securely-with-certifolio-42af](https://dev.to/priyanshuverma/showcase-your-achievements-securely-with-certifolio-42af)
-
-  <hr />
-  Hello Dev.to community!
+Hello Dev.to community!
 
 We're thrilled to introduce [**CertiFolio**](https://certifolio-web.vercel.app/), a groundbreaking platform designed to securely upload, showcase, and verify your certificates and achievements using the power of the InterPlanetary File System (IPFS).
 
@@ -38,26 +34,26 @@ Before you start, make sure you have the following installed:
 ### Installation
 
 1. **Clone the repository**:
-   ```bash
+   ~~~bash
    git clone https://github.com/your-username/certifolio.git
-   ```
+   ~~~
 
 2. **Navigate to the project directory**:
-   ```bash
+   ~~~bash
    cd certifolio
-   ```
+   ~~~
 
 3. **Install dependencies**:
-   ```bash
+   ~~~bash
    npm install
-   ```
+   ~~~
 
 ## 🎉 Usage
 
 1. **Start the CertiFolio application**:
-   ```bash
+   ~~~bash
    npm start
-   ```
+   ~~~
 
 2. **Open your web browser** and go to [http://localhost:3000](http://localhost:3000).
 
@@ -81,5 +77,5 @@ Happy showcasing! 🌐🚀
 
 Feel free to check out the project on [GitHub](https://github.com/priyanshuverma-dev/certifolio) and star the repo if you find it useful. We look forward to your feedback and contributions!
 
-#CertiFolio #IPFS #Blockchain #OpenSource #JavaScript #NodeJS #DigitalCredentials    
-  
+#CertiFolio #IPFS #Blockchain #OpenSource #JavaScript #NodeJS #DigitalCredentials
+ 

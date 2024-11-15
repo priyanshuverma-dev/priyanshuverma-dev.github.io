@@ -1,16 +1,12 @@
-  <img src="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fa0oh7oz6myaazfj2wsco.png" alt="Cover Image" />
-  <hr />
-  
-  # My journey of open-sourcing 2024
-  
-  **Tags:** `hacktoberfestchallenge`, `hacktoberfest`, `devchallenge`, `opensource`
+---
+title: "My journey of open-sourcing 2024"
+publishedAt: "2024-11-06"
+summary: "Introduction 👋   Hello Devs! I am Priyanshu Verma, a aspiring Technologist and Open-source..."
+image: "https://media2.dev.to/dynamic/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fa0oh7oz6myaazfj2wsco.png"
+slug: "my-journey-of-open-sourcing-2024-53f4"
+---
 
-  **Published At:** 11/6/2024, 4:02:56 PM
-
-  **URL:** [https://dev.to/priyanshuverma/my-journey-of-open-sourcing-2024-53f4](https://dev.to/priyanshuverma/my-journey-of-open-sourcing-2024-53f4)
-
-  <hr />
-  ## Introduction 👋
+## Introduction 👋
 
 Hello Devs!
 I am Priyanshu Verma, a aspiring Technologist and Open-source developer. I have recently participated in bunch of events in October.
@@ -63,7 +59,7 @@ The goal was simple encrypt messages sent by `user A` to `user B` with public ke
 So, I use a Secret Passphrase approach which encrypts the private key with the Secret Passphrase provided by user which we do not store only user knows it. then that encrypted private key we store in database. when user login new session we ask for Secret Passphrase that unlocks the private key and save it in local users browser IndexDB. Remember we do not encrypt and decrypt message in servers we send and receives encrypted messages from client.
 
 - I Converted Raw Html flask template website to Single Page Web App in Project [Bot Verse](https://github.com/kom-senapati/bot-verse). It was also my first time and even I don't know how I wrote that logic using no libraries and packages only JavaScript. You can see the basic code I wrote for this 
-```javascript
+~~~javascript
 function navigate(event, path) {
   event.preventDefault(); // Prevent the default anchor behavior
   history.pushState(null, "", path); // Change the URL without reloading the page
@@ -153,7 +149,7 @@ window.onload = function () {
   loadContent(window.location.pathname);
 };
 
-```
+~~~
 
 You see the basic flow. I am not diving deep as it is not technical blog.
 You can Message me if you want to [HERE](https://www.linkedin.com/in/priyanshu-verma-dev/).
@@ -184,5 +180,5 @@ Thanks for reading...
 
 
 
-    
-  
+
+ 

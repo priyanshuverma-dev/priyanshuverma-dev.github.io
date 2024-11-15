@@ -1,16 +1,12 @@
-  
-  <hr />
-  
-  # Custom SSO Implementation
-  
-  **Tags:** `webdev`, `programming`, `opensource`, `typescript`
+---
+title: "Custom SSO Implementation"
+publishedAt: "2024-06-15"
+summary: "The SSO Implementation repository contains the implementation details and examples for seamlessly..."
+image: "https://media2.dev.to/dynamic/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Faag9mj5aa98ezobd8ssz.png"
+slug: "custom-sso-implementation-38pl"
+---
 
-  **Published At:** 6/15/2024, 3:49:15 AM
-
-  **URL:** [https://dev.to/priyanshuverma/custom-sso-implementation-38pl](https://dev.to/priyanshuverma/custom-sso-implementation-38pl)
-
-  <hr />
-  The SSO Implementation repository contains the implementation details and examples for seamlessly integrating the SSO Service into your applications.
+The SSO Implementation repository contains the implementation details and examples for seamlessly integrating the SSO Service into your applications.
 
 ## Repository Link
 
@@ -44,9 +40,9 @@ To integrate the SSO Service into your application, follow these steps:
 
 1. Clone the SSO Implementation repository:
 
-    ```bash
+    ~~~bash
     git clone https://github.com/priyanshuverma-dev/sso-implementation.git
-    ```
+    ~~~
 
 2. Explore the examples and usage guidelines provided in the repository.
 
@@ -63,5 +59,5 @@ Contributions to the SSO Implementation repository are welcome! If you would lik
 ## License
 
 This project is licensed under the MIT License.
-    
-  
+
+ 

@@ -1,16 +1,12 @@
-  
-  <hr />
-  
-  # Best AI APIs to build smart apps with Free tiers.
-  
-  **Tags:** `webdev`, `ai`, `api`
+---
+title: "Best AI APIs to build smart apps with Free tiers."
+publishedAt: "2024-09-29"
+summary: "Hello, fellow code wranglers!  Today, we’re diving into the magical world of AI APIs—the kind of tech..."
+image: "https://media2.dev.to/dynamic/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F97io2rfrrm035ztf8pwi.png"
+slug: "best-ai-apis-to-build-smart-apps-with-free-tiers-22d6"
+---
 
-  **Published At:** 9/29/2024, 12:30:17 PM
-
-  **URL:** [https://dev.to/priyanshuverma/best-ai-apis-to-build-smart-apps-with-free-tiers-22d6](https://dev.to/priyanshuverma/best-ai-apis-to-build-smart-apps-with-free-tiers-22d6)
-
-  <hr />
-  Hello, fellow code wranglers!
+Hello, fellow code wranglers!
 
 Today, we’re diving into the magical world of AI APIs—the kind of tech that can turn your app from “meh” to “whoa!” faster than you can say “machine learning.” And as indie developers, we know budgets can feel like that last slice of pizza at a party: always in danger of disappearing. So, we’re spotlighting some incredible APIs that have free tiers, perfect for stretching those dollars like they’re made of elastic!
 
@@ -120,5 +116,5 @@ Your decent ideas can become outstanding ones by incorporating AI into your appl
 
 Now grab a code editor, roll up your sleeves, and let's create something amazing! I hope your projects are as creative as they are successful and I wish you happy coding!
 
-    
-  
+
+ 
