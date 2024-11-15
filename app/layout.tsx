@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NavbarDock from "@/components/nav-docker";
 import { cn } from "@/lib/utils";
 import { DATA } from "@/lib/data";
+import Script from "next/script";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -49,7 +50,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
   },
   verification: {
-    google: "",
+    google: "W7NItOx0IC8IWBvBwu1dvCUUlLITRlePGmrpMNzw0Fs",
     yandex: "",
   },
 };
@@ -73,8 +74,8 @@ export default function RootLayout({
             {children}
             <NavbarDock />
           </TooltipProvider>
-          {/* <Toaster /> */}
         </ThemeProvider>
+        <Script src="https://cdn.jsdelivr.net/gh/KeptCodes/StatStream@master/scripts/tracker.min.js" />
       </body>
     </html>
   );
