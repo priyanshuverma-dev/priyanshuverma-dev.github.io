@@ -23,4 +23,6 @@ jobs:
           devApiKey: ${{ secrets.DEV_TOKEN }}
           saveArticles: true
           outputDir: "articles"
+          branch: "v1"
+          gh-token: ${{ github.token }}
           saveArticlesReadme: true # this will create a table of content for easy navigation
