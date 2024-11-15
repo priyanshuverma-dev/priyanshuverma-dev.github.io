@@ -1,5 +1,10 @@
 name: publish-to-github-pages
 on:
+  workflow_run:
+    workflows: [blogs-sync]
+    types:
+      - completed
+
   push:
     branches:
       - v1

@@ -1,4 +1,4 @@
-name: Blogs-sync
+name: blogs-sync
 
 on:
   schedule:
