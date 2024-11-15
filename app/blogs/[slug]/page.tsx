@@ -101,7 +101,11 @@ export default async function Blog({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: post.source }}
       ></article>
       <div className="mt-8 text-sm flex items-center justify-center">
-        <Link href={post.slug} target="_blank" className="underline">
+        <Link
+          href={`https://dev.to/priyanshuverma/${post.slug}`}
+          target="_blank"
+          className="underline"
+        >
           Read article on dev.to
         </Link>
       </div>
