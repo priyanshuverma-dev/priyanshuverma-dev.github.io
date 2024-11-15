@@ -11,7 +11,7 @@ const BLUR_FADE_DELAY = 0.04;
 
 export default async function BlogPage() {
   const posts = await getBlogPosts();
-  console.log(posts.length);
+
   return (
     <section>
       <BlurFade delay={BLUR_FADE_DELAY}>
@@ -19,7 +19,9 @@ export default async function BlogPage() {
       </BlurFade>
       {posts
         .sort((a, b) => {
-          if (new Date(a.created_at) > new Date(b.created_at)) {
+          if (
+            new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)
+          ) {
             return -1;
           }
           return 1;
@@ -31,9 +33,9 @@ export default async function BlogPage() {
               href={`/blog/${post.slug}`}
             >
               <div className="w-full flex flex-col">
-                <p className="tracking-tight">{post.title}</p>
+                <p className="tracking-tight">{post.metadata.title}</p>
                 <p className="h-6 text-xs text-muted-foreground">
-                  {post.created_at}
+                  {post.metadata.publishedAt}
                 </p>
               </div>
             </Link>

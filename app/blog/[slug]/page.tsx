@@ -4,11 +4,6 @@ import { formatDate } from "@/lib/utils";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
-import md from "markdown-it";
-import rehypePrettyCode from "rehype-pretty-code";
-import rehypeStringify from "rehype-stringify";
-import remarkParse from "remark-parse";
-import remarkRehype from "remark-rehype";
 
 export async function generateStaticParams() {
   const posts = await getBlogPosts();
@@ -22,16 +17,14 @@ export async function generateMetadata({
     slug: string;
   };
 }): Promise<Metadata | undefined> {
-  const { slug } = await params;
-  let post = await getPost(slug);
+  let post = await getPost(params.slug);
 
-  if (post == null) return notFound();
   let {
     title,
-    created_at: publishedTime,
-    description,
-    social_image: image,
-  } = post;
+    publishedAt: publishedTime,
+    summary: description,
+    image,
+  } = post.metadata;
   let ogImage = image;
 
   return {
@@ -65,8 +58,7 @@ export default async function Blog({
     slug: string;
   };
 }) {
-  const { slug } = await params;
-  let post = await getPost(slug);
+  let post = await getPost(params.slug);
 
   if (!post) {
     notFound();
@@ -81,11 +73,11 @@ export default async function Blog({
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "BlogPosting",
-            headline: post.title,
-            datePublished: post.created_at,
-            dateModified: post.edited_at,
-            description: post.description,
-            image: post.social_image,
+            headline: post.metadata.title,
+            datePublished: post.metadata.publishedAt,
+            dateModified: post.metadata.publishedAt,
+            description: post.metadata.summary,
+            image: post.metadata.image,
             author: {
               "@type": "Person",
               name: DATA.name,
@@ -94,22 +86,19 @@ export default async function Blog({
         }}
       />
       <h1 className="title font-medium text-2xl tracking-tighter max-w-[650px]">
-        {post.title}
+        {post.metadata.title}
       </h1>
       <div className="flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]">
         <Suspense fallback={<p className="h-5" />}>
           <p className="text-sm text-neutral-600 dark:text-neutral-400">
-            {formatDate(post.created_at)}
+            {formatDate(post.metadata.publishedAt)}
           </p>
         </Suspense>
       </div>
-      <article className="prose dark:prose-invert">
-        <div
-          dangerouslySetInnerHTML={{
-            __html: md().render(post.body_markdown),
-          }}
-        ></div>
-      </article>
+      <article
+        className="prose dark:prose-invert"
+        dangerouslySetInnerHTML={{ __html: post.source }}
+      ></article>
     </section>
   );
 }
