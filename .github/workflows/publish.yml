@@ -2,7 +2,7 @@ name: publish-to-github-pages
 on:
   push:
     branches:
-      - pages
+      - v1
 
 permissions:
   contents: read
@@ -28,7 +28,7 @@ jobs:
         uses: actions/configure-pages@v4
 
       - name: Build with Next.js 🏗️
-        run: ls -la && npm run build && ls -la
+        run: npm run build
 
       - name: Upload artifact 📡
         uses: actions/upload-pages-artifact@v3
