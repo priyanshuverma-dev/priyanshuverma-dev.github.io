@@ -75,7 +75,7 @@ export default function RootLayout({
             <NavbarDock />
           </TooltipProvider>
         </ThemeProvider>
-        <Script src="https://cdn.jsdelivr.net/gh/KeptCodes/StatStream@master/scripts/tracker.min.js" />
+        <Script src="https://statstream.onrender.com/scripts/tracker" />
       </body>
     </html>
   );
