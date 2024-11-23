@@ -25,11 +25,10 @@ export const DATA = {
     "Docker",
     "C#",
     "Video Editing",
-    "Flutteer",
+    "Flutter",
   ],
   contact: {
     email: "priyanshuverma@outlook.in",
-    tel: "+91 8630169128",
     social: {
       GitHub: {
         name: "GitHub",
