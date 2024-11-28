@@ -11,7 +11,7 @@ export const DATA = {
     "Hi, I am Priyanshu Verma Techologist and Open-source developer based in India. I'm a **17-year-old coding enthusiast** with a keen interest in App and Web Development. Passionate about **Programming**, **kinematics**, **IoT**, **Physics**, and **Space**. Always open to collaborating with like-minded people. I'm also managing the **[KeptCodes](https://github.com/KeptCodes)** organization, where I host and develop my personal and side projects 🚀.",
   dock: [
     { href: "/", icon: HomeIcon, label: "Home" },
-    { href: "/blogs", icon: NotebookIcon, label: "Blog" },
+    { href: "/blogs/", icon: NotebookIcon, label: "Blog" },
   ],
   avatarUrl: "/me.jpg",
   skills: [
