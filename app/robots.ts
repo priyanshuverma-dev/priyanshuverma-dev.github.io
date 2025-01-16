@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://priyanshuverma-dev.github.io/sitemap.xml',
+    sitemap: 'https://priyanshuverma-dev.github.io/blogs/sitemap.xml',
   }
 }

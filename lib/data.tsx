@@ -8,7 +8,7 @@ export const DATA = {
   description:
     "Techologist and Open-source developer based in India building stuff from scratch with latest tech.",
   summary:
-    "Hi, I am Priyanshu Verma Techologist and Open-source developer based in India. I'm a **17-year-old coding enthusiast** with a keen interest in App and Web Development. Passionate about **Programming**, **kinematics**, **IoT**, **Physics**, and **Space**. Always open to collaborating with like-minded people. I'm also managing the **[KeptCodes](https://github.com/KeptCodes)** organization, where I host and develop my personal and side projects 🚀.",
+    "Hi, I am Priyanshu Verma Techologist and Open-source developer based in India. I’m a passionate **App and Web Developer** with a strong interest in **programming**, **kinematics**, **IoT**, **Physics**, and **Space**. Always open to collaborating with like-minded people.I am the founder and lead developer of the **[DIY Builds](https://github.com/DIYBuilds)** organization, where I host and develop a variety of personal and open-source projects 🚀.",
   dock: [
     { href: "/", icon: HomeIcon, label: "Home" },
     { href: "/blogs/", icon: NotebookIcon, label: "Blog" },
@@ -28,7 +28,7 @@ export const DATA = {
     "Flutter",
   ],
   contact: {
-    email: "priyanshuverma@outlook.in",
+    email: "priyanshuverma [at] outlook [dot] in",
     social: {
       GitHub: {
         name: "GitHub",
@@ -50,13 +50,6 @@ export const DATA = {
         icon: Icons.x,
 
         navbar: true,
-      },
-      email: {
-        name: "Send Email",
-        url: "mailto:priyanshuverma@outlook.in",
-        icon: Icons.email,
-
-        navbar: false,
       },
     },
   },
@@ -101,7 +94,7 @@ export const DATA = {
   projects: [
     {
       title: "Sangeet",
-      href: "https://github.com/KeptCodes/sangeet",
+      href: "https://github.com/DIYBuilds/sangeet",
       dates: "May 2024 - Present",
       active: true,
       description:
@@ -110,12 +103,12 @@ export const DATA = {
       links: [
         {
           type: "Releases",
-          href: "https://github.com/KeptCodes/sangeet/releases",
+          href: "https://github.com/DIYBuilds/sangeet/releases",
           icon: <Icons.github className="size-3" />,
         },
         {
           type: "Source",
-          href: "https://github.com/KeptCodes/sangeet",
+          href: "https://github.com/DIYBuilds/sangeet",
           icon: <Icons.github className="size-3" />,
         },
       ],
@@ -123,7 +116,7 @@ export const DATA = {
     },
     {
       title: "StatStream",
-      href: "https://github.com/KeptCodes/StatStream",
+      href: "https://github.com/DiyBuilds/StatStream",
       dates: "November 2024 - Present",
       active: true,
       description:
@@ -132,8 +125,18 @@ export const DATA = {
       links: [
         {
           type: "Source",
-          href: "https://github.com/KeptCodes/StatStream",
+          href: "https://github.com/DiyBuilds/StatStream",
           icon: <Icons.github className="size-3" />,
+        },
+        {
+          type: "Studio",
+          href: "https://statstream.pages.dev/",
+          icon: <Icons.nextjs className="size-3" />,
+        },
+        {
+          type: "Docs",
+          href: "https://diybuilds.github.io/StatStream/",
+          icon: <Icons.globe className="size-3" />,
         },
       ],
       image: "/images/StatStream.png",
@@ -154,7 +157,7 @@ export const DATA = {
         },
         {
           type: "Source",
-          href: "https://github.com/KeptCodes/build-journal",
+          href: "https://github.com/DIYBuilds/build-journal",
           icon: <Icons.github className="size-3" />,
         },
       ],
@@ -176,7 +179,7 @@ export const DATA = {
         },
         {
           type: "Source",
-          href: "https://github.com/KeptCodes/stock-charts",
+          href: "https://github.com/DIYBuilds/stock-charts",
           icon: <Icons.github className="size-3" />,
         },
       ],

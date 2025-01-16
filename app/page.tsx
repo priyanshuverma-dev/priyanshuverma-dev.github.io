@@ -135,7 +135,7 @@ export default function Page() {
         <BlurFade delay={BLUR_FADE_DELAY * 15}>
           <Markdown className="max-w-[800px] mx-auto -mt-8 prose text-pretty font-sans text-sm text-muted-foreground dark:prose-invert">
             For More Projects Check out my
-            [@KeptCodes](https://github.com/KeptCodes) and
+            [@DIYBuilds](https://github.com/DIYBuilds) and
             [@GitHub](https://github.com/priyanshuverma-dev)
           </Markdown>
         </BlurFade>
