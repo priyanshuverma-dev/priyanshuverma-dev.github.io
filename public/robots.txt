@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://priyanshuverma-dev.github.io/sitemap-index.xml
