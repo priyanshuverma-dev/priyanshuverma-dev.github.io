@@ -1,0 +1,134 @@
+---
+import type { Page } from "astro";
+import type { RenderedContent } from "astro:content";
+import type { InferEntrySchema } from "astro:content";
+
+type Props = {
+  pageNums: number[];
+  page: Page<{
+    id: string;
+    body?: string;
+    collection: "blog";
+    data: InferEntrySchema<"blog">;
+    rendered?: RenderedContent;
+    filePath?: string;
+  }>;
+};
+
+const { page, pageNums } = Astro.props;
+---
+
+<nav aria-label="Blog pagination" class="mt-12">
+  {
+    page.lastPage > 1 && (
+      <div class="flex items-center justify-center space-x-2">
+        {/* Previous Page Button */}
+        {page.url.prev ? (
+          <a
+            href={page.url.prev}
+            class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors flex items-center space-x-2"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            <span>Previous</span>
+          </a>
+        ) : (
+          <button
+            disabled
+            class="px-4 py-2 rounded-lg bg-gray-100 text-gray-400 dark:bg-gray-800 dark:text-gray-600 cursor-not-allowed flex items-center space-x-2"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            <span>Previous</span>
+          </button>
+        )}
+
+        {/* Page Numbers */}
+        <div class="hidden sm:flex items-center space-x-2">
+          {pageNums.map((num) => {
+            const isCurrentPage = page.currentPage === num;
+            return (
+              <a
+                href={`/blog/${num === 1 ? "" : num + "/"}`}
+                class={`px-4 py-2 rounded-lg transition-colors ${
+                  isCurrentPage
+                    ? "bg-blue-500 text-white dark:bg-blue-600 hover:bg-blue-600 dark:hover:bg-blue-700"
+                    : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
+                }`}
+                aria-current={isCurrentPage ? "page" : undefined}
+              >
+                {num}
+              </a>
+            );
+          })}
+        </div>
+
+        {/* Current Page Indicator (Mobile) */}
+        <span class="sm:hidden px-4 py-2 text-gray-700 dark:text-gray-300">
+          Page {page.currentPage} of {page.lastPage}
+        </span>
+
+        {/* Next Page Button */}
+        {page.url.next ? (
+          <a
+            href={page.url.next}
+            class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors flex items-center space-x-2"
+          >
+            <span>Next</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </a>
+        ) : (
+          <button
+            disabled
+            class="px-4 py-2 rounded-lg bg-gray-100 text-gray-400 dark:bg-gray-800 dark:text-gray-600 cursor-not-allowed flex items-center space-x-2"
+          >
+            <span>Next</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </button>
+        )}
+      </div>
+    )
+  }
+</nav>

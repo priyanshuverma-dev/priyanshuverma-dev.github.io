@@ -1,0 +1,145 @@
+---
+import { getCollection, getEntry, render } from "astro:content";
+import BlogPostingJSONLD from "../../components/BlogPostingJSONLD.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { id: post.id },
+  }));
+}
+
+const { id } = Astro.params;
+if (id === undefined) {
+  return Astro.redirect("/404");
+}
+
+const post = await getEntry("blog", id);
+if (post === undefined) {
+  return Astro.redirect("/404");
+}
+
+const { Content, remarkPluginFrontmatter } = await render(post);
+---
+
+<BlogLayout
+  title={post.data.title}
+  description={post.data.description}
+  image={post.data.image}
+  url={Astro.url}
+>
+  <BlogPostingJSONLD slot="head" {...post.data} />
+  <main
+    class="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 py-16 transition-colors duration-200"
+  >
+    <article class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+      <!-- Header Section -->
+      <header class="mb-12 text-center">
+        <h1
+          class="text-4xl font-bold text-gray-900 dark:text-gray-50 mb-4 font-lora tracking-tight transition-colors"
+        >
+          {post.data.title}
+        </h1>
+        <div
+          class="flex items-center justify-center space-x-4 text-gray-600 dark:text-gray-400 font-inter transition-colors"
+        >
+          <time datetime={post.data.pubDate?.toISOString()}>
+            {
+              post.data.pubDate?.toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })
+            }
+          </time>
+          <span>•</span>
+          <span>{remarkPluginFrontmatter.minutesRead}</span>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <div
+        class="prose prose-lg dark:prose-invert mx-auto font-inter
+        prose-headings:tracking-tight
+        prose-h1:text-3xl prose-h1:font-bold prose-h1:mb-8
+        prose-h2:text-2xl prose-h2:font-semibold prose-h2:mt-12 prose-h2:mb-6
+        prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-p:mb-6
+        prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline
+        prose-blockquote:border-l-4 prose-blockquote:border-blue-500 dark:prose-blockquote:border-blue-400
+        prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:my-8
+        prose-code:bg-gray-100 dark:prose-code:bg-gray-700 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded
+        prose-pre:bg-gray-900 dark:prose-pre:bg-gray-800 prose-pre:text-gray-100 prose-pre:p-4 prose-pre:rounded-lg
+        prose-img:rounded-lg prose-img:shadow-md dark:prose-img:shadow-gray-700 prose-img:my-12
+        prose-li:my-2
+        max-w-none transition-colors"
+      >
+        <Content />
+      </div>
+    </article>
+  </main>
+</BlogLayout>
+
+<style>
+  /* Custom styles for better readability and spacing */
+  :global(body) {
+    font-feature-settings:
+      "liga" 1,
+      "kern" 1;
+    text-rendering: optimizeLegibility;
+  }
+
+  :global(pre) {
+    position: relative;
+    padding: 1.5rem !important;
+    margin: 2rem 0;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+  }
+
+  :global(pre code) {
+    background-color: transparent !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    font-size: 0.875rem;
+    line-height: 1.7142857;
+  }
+
+  :global(.prose img) {
+    margin-top: 3rem !important;
+    margin-bottom: 3rem !important;
+  }
+
+  :global(.prose p + p) {
+    margin-top: 1.5rem;
+  }
+
+  :global(.prose h2 + p) {
+    margin-top: 1rem;
+  }
+
+  :global(.prose li > p) {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  /* Dark mode specific adjustments */
+  :global(.dark .prose strong) {
+    color: #e5e7eb;
+  }
+
+  :global(.dark .prose hr) {
+    border-color: #374151;
+  }
+
+  :global(.dark .prose table) {
+    border-color: #374151;
+  }
+
+  :global(.dark .prose thead) {
+    border-bottom-color: #374151;
+  }
+
+  :global(.dark .prose tbody tr) {
+    border-bottom-color: #374151;
+  }
+</style>

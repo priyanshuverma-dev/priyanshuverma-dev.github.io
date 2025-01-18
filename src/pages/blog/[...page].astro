@@ -1,0 +1,108 @@
+---
+import { getCollection } from "astro:content";
+import BlogLayout from "../../layouts/BlogLayout.astro";
+import type { GetStaticPaths } from "astro";
+import BlogPagination from "../../layouts/BlogPagination.astro";
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const posts = (await getCollection("blog")).sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  );
+
+  return paginate(posts, { pageSize: 6 });
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+const regularPosts = page.data.sort(
+  (a, b) =>
+    new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+);
+const pageNums = Array.from({ length: page.lastPage }, (_, i) => i + 1);
+---
+
+<BlogLayout title="Priyanshu Verma's Thoughts & Creations">
+  <main
+    class="min-h-screen bg-gray-50 dark:bg-gray-900 py-12 transition-colors"
+  >
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Header Section -->
+      <header class="text-center mb-16">
+        <h1
+          class="text-4xl font-bold text-gray-900 dark:text-white font-poppins mb-4"
+        >
+          Blog & Articles
+        </h1>
+        <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          Exploring technology, development, and creative insights. Join me on
+          this journey of continuous learning and discovery.
+        </p>
+      </header>
+
+      <!-- Regular Posts Grid -->
+      <section class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {
+          regularPosts.map((post) => (
+            <article class="flex flex-col bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden">
+              <div class="relative h-48">
+                {post.data.image ? (
+                  <img
+                    src={post.data.image}
+                    alt={post.data.title}
+                    class="h-full w-full object-cover"
+                  />
+                ) : (
+                  <div class="h-full w-full bg-gradient-to-r from-blue-400 to-purple-500" />
+                )}
+              </div>
+              <div class="p-6 flex-1 flex flex-col">
+                <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-2">
+                  <time>
+                    {post.data.pubDate.toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </time>
+                  <span class="mx-2">•</span>
+                  <span>
+                    {(post.rendered?.metadata?.frontmatter as any)
+                      .minutesRead || "5 min read"}
+                  </span>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">
+                  <a href={`/blog/${post.id}`}>{post.data.title}</a>
+                </h3>
+                <p class="text-gray-600 dark:text-gray-400 text-sm line-clamp-2 mb-4">
+                  {post.data.description}
+                </p>
+                {post.data.tags && (
+                  <div class="flex flex-wrap gap-2 mt-auto">
+                    {post.data.tags.map((tag) => (
+                      <span class="px-2 py-1 text-xs rounded-full bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </article>
+          ))
+        }
+      </section>
+
+      <!-- Pagination Section -->
+      <BlogPagination page={page} pageNums={pageNums} />
+    </div>
+  </main>
+</BlogLayout>
+
+<style>
+  /* Optional: Add custom transitions */
+  article {
+    transition: transform 0.2s ease-in-out;
+  }
+
+  article:hover {
+    transform: translateY(-2px);
+  }
+</style>
