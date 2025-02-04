@@ -13,22 +13,27 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://priyanshuverma-dev.github.io",
+  site: "https://priyanshupz.github.io",
   markdown: {
     remarkPlugins: [remarkReadingTime],
   },
-  integrations: [tailwind(), mdx({
-    syntaxHighlight: false,
-    optimize: true,
+  integrations: [
+    tailwind(),
+    mdx({
+      syntaxHighlight: false,
+      optimize: true,
 
-    rehypePlugins: [
-      rehypeSlug,
-      [
-        rehypePrettyCode,
-        {
-          theme: "one-dark-pro",
-        },
+      rehypePlugins: [
+        rehypeSlug,
+        [
+          rehypePrettyCode,
+          {
+            theme: "one-dark-pro",
+          },
+        ],
       ],
-    ],
-  }), sitemap(), icon()],
+    }),
+    sitemap(),
+    icon(),
+  ],
 });

@@ -3,23 +3,21 @@ import InfinyonPriyanshu from "./assets/images/infinyon-priyanshu.png";
 import Sangeet from "./assets/images/sangeet.png";
 import StatSteam from "./assets/images/StatStream.png";
 
-
 export default {
-  url: "https://priyanshuverma-dev.github.io/",
+  url: "https://priyanshupz.github.io/",
   title: "Priyanshu Verma's Thoughts & Creations",
   description:
     "A collection of coding tutorials, project showcases, and insightful thoughts on tech and development.",
   image: "/me.jpg",
   name: "Priyanshu Verma",
   social: {
-    github: "https://github.com/priyanshuverma-dev",
-    twitter: "https://x.com/pvdev",
-    linkedin: "https://www.linkedin.com/in/priyanshu-verma-dev/",
+    github: "https://github.com/priyanshupz",
+    twitter: "https://x.com/PriyanshuPz",
+    linkedin: "https://www.linkedin.com/in/priyanshu-verma-pz/",
   },
-   summary : `
+  summary: `
   Technologist and open-source developer based in India.\\
-  Passionate about **understanding how machines work perfectly** with a strong interest in **programming**, **mechanics**,  and **physics**.
-  Always open to collaborating with like-minded people,
+  I create—code, games, videos, music, and stories. Indie hacker, content creator, and explorer of ideas. Always building, always learning,
   also founder of the **[@DIYBuilds](https://github.com/DIYBuilds)**,
   where I showcase and develop a variety of personal and open-source projects 🚀.
 `,
@@ -43,17 +41,17 @@ export default {
     social: [
       {
         name: "GitHub",
-        url: "https://github.com/priyanshuverma-dev",
+        url: "https://github.com/priyanshupz",
         icon: "mdi:github",
       },
       {
         name: "LinkedIn",
-        url: "https://www.linkedin.com/in/priyanshu-verma-dev/",
+        url: "https://www.linkedin.com/in/priyanshu-verma-pz/",
         icon: "mdi:linkedin",
       },
       {
         name: "X",
-        url: "https://x.com/pvdev",
+        url: "https://x.com/PriyanshuPz",
         icon: "mdi:twitter",
       },
     ],
@@ -166,7 +164,7 @@ export default {
           icon: "mdi:github",
         },
       ],
-      image:BuildJournal,
+      image: BuildJournal,
     },
     {
       title: "StockViz",
